@@ -1,8 +1,35 @@
-
 import React, { Component } from 'react';
 import './Main.css';
+import ToggleButton from 'react-toggle-button';
+
 
 class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { ledOn: false };
+    }
+    setLedState(state) {
+        console.log(this.state.ledOn);
+
+        this.setState(
+            {
+                ledOn: state !== '0'
+            }
+        )
+        console.log(this.state.ledOn);
+    }
+    componentDidMount() {
+        console.log("run");
+        fetch('/led')
+            .then(response => response.text())
+            .then(state => this.setLedState(state));
+    }
+    handleStateChange(ledOn) {
+        fetch('/led', { method: 'PUT', body: ledOn ? '0' : '1' })
+            .then(response => response.text())
+            .then(state => this.setLedState(state));
+    }
+
     render() {
         return (
             <div class="main-body">
@@ -108,7 +135,10 @@ class Main extends Component {
                         </div>
                     </form>
                 </div>
-
+                <ToggleButton
+                    value={this.state.ledOn}
+                    onToggle={value => this.handleStateChange(value)}
+                />
                 <footer>
                     <div class="foot">
                         <div class="foot-text">
