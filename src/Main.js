@@ -8,22 +8,25 @@ class Main extends Component {
         super(props);
         this.state = { ledOn: false };
     }
+
     setLedState(state) {
         console.log(this.state.ledOn);
 
         this.setState(
             {
-                ledOn: state !== '0'
+                ledOn: !this.state.ledOn
             }
         )
         console.log(this.state.ledOn);
     }
+
     componentDidMount() {
         console.log("run");
         fetch('/led')
             .then(response => response.text())
             .then(state => this.setLedState(state));
     }
+
     handleStateChange(ledOn) {
         fetch('/led', { method: 'PUT', body: ledOn ? '0' : '1' })
             .then(response => response.text())
