@@ -3,6 +3,7 @@ import './Pricing.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'react-bootstrap';
 import logo from './pricinglogo.png';
+import pricing from './prices.png';
 
 class Pricing extends Component {
 
@@ -21,8 +22,7 @@ class Pricing extends Component {
                             are 100% made from recyclable plastic. Straws are provided on the side of our machines but we ask users to consider bringing their own resuable straws to help the environment.
                         </div>
                         <div class="prices">
-                        <div class="imgEdit"><img src={logo} alt="Bubble Me Up Logo" class="logo" rounded /></div>
-
+                            <div class="priceimg"><img src={pricing} alt="Bubble Me Up Logo" class="price" /></div>
                         </div>
                     </Col>
                     <Col xs="3"></Col>
