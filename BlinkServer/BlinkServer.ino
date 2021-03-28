@@ -2,8 +2,8 @@
 #include "aWOT.h"
 #include "StaticFiles.h"
 
-#define WIFI_SSID "DavidsBigBoy_UBI"
-#define WIFI_PASSWORD "Anna20021014"
+#define WIFI_SSID "Hi"
+#define WIFI_PASSWORD "1294606016"
 #define LED_BUILTIN 2
 
 WiFiServer server(80);

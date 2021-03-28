@@ -96,10 +96,10 @@ class Main extends Component {
                         </div>
                     </Form>
                 </div>
-                {/* <ToggleButton
+                <ToggleButton
                     value={this.state.ledOn}
                     onToggle={value => this.handleStateChange(value)}
-                /> */}
+                />
             </div >
 
         );

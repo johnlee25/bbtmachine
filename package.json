@@ -45,7 +45,7 @@
   "devDependencies": {
     "awot-scripts": "^3.1.1"
   },
-  "proxy": "http://10.0.0.126",
+  "proxy": "http://192.168.0.26/",
   "awot-static": {
     "sources": "./build",
     "indexFile": "index.html",
