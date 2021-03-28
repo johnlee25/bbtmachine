@@ -12,18 +12,14 @@ class Main extends Component {
     }
 
     setLedState(state) {
-        console.log(this.state.ledOn);
-
         this.setState(
             {
                 ledOn: !this.state.ledOn
             }
         )
-        console.log(this.state.ledOn);
     }
 
     componentDidMount() {
-        console.log("run");
         fetch('/led')
             .then(response => response.text())
             .then(state => this.setLedState(state));

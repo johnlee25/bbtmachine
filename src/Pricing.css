@@ -20,3 +20,28 @@
     width: 600px;
 }
 
+.top{
+    height: 357px;
+    width: 500px;
+}
+
+.topimg{
+    margin-top: 50px;
+}
+.bot{
+    height: 357px;
+    width: 500px;
+}
+
+.botimg{
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.foot{
+    height: 80px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+}
