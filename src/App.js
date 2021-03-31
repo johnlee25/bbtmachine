@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import './Main.css';
 import './Pricing.css';
 import './About.css';
+import './App.css';
 import ToggleButton from 'react-toggle-button';
 import { Form, Col, Row, Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import pricing from './prices.jpg';
 import top from './aboutlogo.png';
 // import bot from './pricinglogo.png';
+
+const borderRadiusStyle = { borderRadius: 2 }
+
 
 
 class App extends Component {
@@ -33,10 +37,12 @@ class App extends Component {
   // }
 
   handleStateChange(ledOn) {
+    console.log("this works")
     fetch('/led', { method: 'PUT', body: ledOn ? '0' : '1' })
       .then(response => response.text())
       .then(state => this.setLedState(state));
   }
+
 
   render() {
     return (
@@ -105,20 +111,25 @@ class App extends Component {
                 <option value="Pudding">Pudding</option>
               </Form.Control>
             </div>
-            <div class="submitbtn">
-              <input type="button" value="Submit" class="submit-btn" />
+            <div class="toggle-btn">
+              Send Order
+              <div class="thisbtn">
+                <ToggleButton
+                  inactiveLabel={"X"}
+                  activeLabel={"✓"}
+                  value={this.state.ledOn}
+                  onToggle={value => this.handleStateChange(value)}
+                />
+              </div>
             </div>
+
           </Form>
         </div>
-        <ToggleButton
-          value={this.state.ledOn}
-          onToggle={value => this.handleStateChange(value)}
-        />
+
         <div class="pricing">
           <Row>
             <Col xs="3"></Col>
             <Col>
-            {/* <div class="botimg"><img src={bot} alt="Bubble Me Up Logo" class="bot" /></div> */}
               <div class="pricing-intro" id="price">
                 Welcome to Bubble Me Up! When shopping with Bubble Me Up, we ensure the most competive pricing on all our drinks. All our ingredients are freshly stocked daily and cleaned on a regular basis. Our cups
                 are 100% made from recyclable plastic. Straws are provided on the side of our machines but we ask users to consider bringing their own resuable straws to help the environment.
