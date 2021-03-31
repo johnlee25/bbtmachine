@@ -26,11 +26,11 @@ class App extends Component {
 
 
 
-  componentDidMount() {
-    fetch('/led')
-      .then(response => response.text())
-      .then(state => this.setLedState(state));
-  }
+  // componentDidMount() {
+  //   fetch('/led')
+  //     .then(response => response.text())
+  //     .then(state => this.setLedState(state));
+  // }
 
   handleStateChange(ledOn) {
     fetch('/led', { method: 'PUT', body: ledOn ? '0' : '1' })
